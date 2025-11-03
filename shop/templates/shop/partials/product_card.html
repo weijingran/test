@@ -1,11 +1,25 @@
 <div class="product-card">
+    <!-- Product link to detail page -->
     <a href="{% url 'shop:product_detail' product.pk %}">
         <div class="card-content">
+
+            <!-- Display product image -->
+            <div class="product-image">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" width="200" height="200">
+                {% else %}
+                    <p>No image available</p>
+                {% endif %}
+            </div>
+
+            <!-- Product details -->
             <h3>{{ product.name }}</h3>
             <p class="category"><em>{{ product.category }}</em></p>
             <p class="price">${{ product.price }}</p>
         </div>
     </a>
+
+    <!-- Footer with View Details button -->
     <div class="card-footer">
         <a href="{% url 'shop:product_detail' product.pk %}" class="btn btn-primary">View Details</a>
     </div>

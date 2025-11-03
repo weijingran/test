@@ -17,7 +17,12 @@
     </p>
 
     <p class="price" style="font-size: 2em; margin: 1rem 0; font-weight: 600; color: var(--primary-color);">${{ product.price }}</p>
-    
+
+      <!-- Display Product Image -->
+    {% if product.image %}
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width: 100%; height: auto; margin-bottom: 1.5rem;">
+    {% endif %}
+
     <div class="description" style="margin-bottom: 1.5rem;">
         <p>{{ product.description|linebreaks }}</p>
     </div>
@@ -88,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (data.created) {
                         likeBtn.classList.add('liked');
                         likeBtn.textContent = 'Liked!';
-                    } else {
+                    } els         e {
                         likeBtn.classList.remove('liked');
                         likeBtn.textContent = 'Like';
                     }

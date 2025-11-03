@@ -1,11 +1,12 @@
 {% extends "shop/base.html" %}
 
-{% block title %}Products{% endblock %}
+{% block title %}产品{% endblock %}
 
 {% block content %}
     {% if user.is_authenticated and user_recommendations %}
     <section class="recommendations">
-        <h2>Recommended for You</h2>
+        <!-- <h2>Recommended for You</h2> -->
+        <h2>为您推荐</h2>
         <div class="recommendations-grid">
             {% for product in user_recommendations %}
                 {% include "shop/partials/product_card.html" %}
@@ -14,12 +15,14 @@
     </section>
     {% endif %}
 
-    <h2>All Products</h2>
+    <!-- <h2>All Products</h2> -->
+    <h2>所有产品</h2>
     <div class="product-grid">
         {% for product in products %}
             {% include "shop/partials/product_card.html" %}
         {% empty %}
-        <p>No products available.</p>
+        <!-- <p>No products available.</p> -->
+        <p>暂无产品</p>
         {% endfor %}
     </div>
 {% endblock %}
